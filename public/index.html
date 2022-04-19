@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title>My invitation</title>
+    <script>
+      var isProd = '<%= NODE_ENV %>' === 'production';
+      if (isProd && location.protocol === 'http:') {
+        location.protocol = "https:";
+      }
+    </script>
+    <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/moment.js/2.25.3/moment.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/moment.js/2.25.3/locale/zh-cn.min.js"></script>
+    <script src="https://imgcache.qq.com/qcloud/tcbjs/1.6.1/tcb.js" defer></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+      #beian {
+        position: fixed;
+        bottom: 1em;
+        width: 100%;
+        text-align: center;
+      }
+
+      #beian a {
+        color: white;
+        text-decoration: underline;
+      }
+    </style>
+
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but wedding-invitation doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <audio id="bgmusic" src="takemetoyourheart.mp3" autoplay="autoplay" loop="loop"></audio>
+    <!-- built files will be auto injected -->
+  </body>
+<script>
+    window.onload = function(){
+      function autoPlayAudio() {
+            wx.config({
+                // 配置信息, 即使不正确也能使用 wx.ready
+                debug: false
+                , appId: ''
+                , timestamp: 1
+                , nonceStr: ''
+                , signature: ''
+                , jsApiList: []
+            });
+            wx.ready(function () {
+              document.getElementById("bgmusic").play();
+            });
+        }
+    autoPlayAudio();
+  }
+</script>
+</html>
